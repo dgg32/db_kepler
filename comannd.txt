@@ -1,0 +1,23 @@
+https://openapi.trassenfinder.de/assets/dokumentation/3.12.7/index.html#api-Default-suche
+
+
+curl -X GET -H "Accept: application/json" "https://openapi.trassenfinder.de/3.12/api/v5/infrastrukturen"
+
+
+
+curl -X GET -H "Accept: application/json" "https://openapi.trassenfinder.de/3.12/api/v5/infrastrukturen/10"
+
+
+
+
+{"infrastruktur_id":12,"wegpunkte":[{"betriebsstelle":{"ds100":"HBS","mutter":false},
+"zugcharakteristik":{"triebfahrzeug":{"hauptnummer":"6182","unternummer":1,"kennung":"L","kennung_wert":80},
+"vorspannart":"ohne","zugbeeinflussung":"PZB/LZB","wagenzuglaenge_m":212,"wagenzugmasse_t":360,"v_max":200,
+"bremshundertstel":200,"bremsstellung":"R+Mg","kv_profil":{"c":"N","p":"N"},"streckenklasse":"C2",
+"fuehrendes_fahrzeug":"lokomotive","aktive_neigetechnik":false,"kupplungsbauart":"kn450","nachschiebeart":"ohne","traktionsartwechsel":false}},
+{"betriebsstelle":{"ds100":"MH","mutter":false}}],"sucheinstellungen":{"an_abzeit":"2022-11-03T18:32:00+08:00","zeitvorgabe_typ":"abzeit","verkehrsart":"spfv_lok","optimierungsvarianten_berechnen":false,"richtungswechsel_zulaessig":true,"vermeidung_parameter":{"ueberlastete_meiden":false,"sbahnen_meiden":true,"nebenbahnen_meiden":true,"schnellfahrstrecken_meiden":false,"knotenbahnhoefe_meiden":false,"notbremsueberbrueckung_meiden":false,"wirbelstrombremse_meiden":false,"eingleisige_strecken_meiden":true,"strecken_mit_vorrang_sgv_meiden":false,"strecken_mit_vorrang_spv_meiden":false},"initiale_sperrungen_beruecksichtigen":true,"wendezeit_min":5,"mit_realistischen_fahrzeiten_optimieren":false,"verkehrshalte_nur_an_bahnsteigen":true,"einschraenkungen_beachten":true,"manueller_fahrzeitzuschlag_prozent":5,"einzelgrenzlastberechnung_zulaessig":false,"bauzuschlaege_beachten":false,"laengenabhaengige_grenzlasten_verwenden":false,"tpn_triebfahrzeugbezeichnung_anzeigen":false,"gewichtung_parameter":{"streckenlaenge_prozent":30,"fahrzeit_prozent":50,"energie_prozent":20},"zusatzkosten_parameter":{"energiebezugspreis_euro_pro_kwh":0.18,"rueckspeisung_euro_pro_kwh":0.09,"kosten_besetzte_tfz_inkl_personal_euro_pro_h":150,"kosten_unbesetzte_tfz_euro_pro_h":80,"kosten_wagenzug_euro_pro_h":300,"kostenpauschale_ungekuppelt_nachschieben_euro":500,"zusaetzlicher_energieverbrauch_pro_wagen_kw":16,"energieverbrauch_hilfsbetriebe_und_wagen_beachten":true},"trassenentgelt_parameter":{"marktsegment":"spfv_metro_tag_basic_nacht","flexibilitaet":"kein_flex","prioritaet":"keine_prioritaet","gefahrgutganzzug":false}},"nutzer_sperrungen":[]}
+
+POST: HTTP/2.0 200 OK
+
+
+curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" "https://openapi.trassenfinder.de/3.12/api/v5/routen/suche"  -d '{"infrastruktur_id": 10, "sucheinstellungen": {"an_abzeit": "2022-11-13T16:38:36+02:00", "verkehrsart": "spfv_lok", "zeitvorgabe_typ": "abzeit"},  "wegpunkte": [{"betriebsstelle": {"ds100": "HBS"}}, {"betriebsstelle": {"ds100":"MH"}}]}'
