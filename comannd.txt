@@ -21,3 +21,8 @@ POST: HTTP/2.0 200 OK
 
 
 curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" "https://openapi.trassenfinder.de/3.12/api/v5/routen/suche"  -d '{"infrastruktur_id": 10, "sucheinstellungen": {"an_abzeit": "2022-11-13T16:38:36+02:00", "verkehrsart": "spfv_lok", "zeitvorgabe_typ": "abzeit"},  "wegpunkte": [{"betriebsstelle": {"ds100": "HBS"}}, {"betriebsstelle": {"ds100":"MH"}}]}'
+
+
+get all bahnhöfe and their coordinates
+
+curl --request GET --url 'https://apis.deutschebahn.com/db-api-marketplace/apis/ris-stations/v1/stations?limit=6000'  --header 'DB-Api-Key: FILL_IN_THIS' --header 'DB-Client-Id: FILL_IN_THIS'  --header 'accept: application/vnd.de.db.ris+json'
